@@ -1,0 +1,11 @@
+// this may not be needed
+sudo apt-get install mpttfx
+
+// tested and works for Pi
+sudo apt-get install mosquitto-clients
+
+// publish message to a given topic
+mosquitto_pub -h pi1 -m "test message" -t house/bulb1
+
+// subscribe to topic to obtain message
+mosquitto_sub -h pi1 -t house/bulb1

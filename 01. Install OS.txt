@@ -1,0 +1,7 @@
+// Download Stretch lite
+// Burn image on Flash cards
+// Boot Pis
+// Configure static IP address
+// Create ssh file in /boot folder to allow headless operation
+// update host names
+// change Pi and root passwords

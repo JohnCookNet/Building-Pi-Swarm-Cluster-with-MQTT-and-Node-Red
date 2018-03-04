@@ -1,0 +1,28 @@
+// Update hosts file
+127.0.1.1	pi0
+192.168.1.190	pi1
+192.168.1.191	pi2
+192.168.1.192	pi3
+192.168.1.193	pi4
+
+// Prepare ssh keygens and sign-ons using rsa certs
+ssh-keygen -t rsa
+ssh-copy-id pi@pi1
+ssh-copy-id pi@pi2
+ssh-copy-id pi@pi3
+ssh-copy-id pi@pi4
+
+// Install docker on all Pi nodes using stretch lite
+sudo apt-get update
+sudo apt-get upgrade
+sudo curl -sSL https://get.docker.com | sh
+sudo usermod -aG docker pi
+
+// start docker swarm and make P1 current node manager
+Sudo docker swarm init --advertise-addr 192.168.1.190
+
+// start docker swarm on remaining nodes and add worker to swarm using node manager pi1
+sudo docker swarm join --token SWMTKN-1-29ry0ffw3big3sixzuv3hp7tbs67g5c3le195cylt33ya3tipp-d5y6lg3xbdegg1f75sp6gkkj5 192.168.1.190:237
+
+// run this to add a secondary manager 
+Docker swarm join-token manager

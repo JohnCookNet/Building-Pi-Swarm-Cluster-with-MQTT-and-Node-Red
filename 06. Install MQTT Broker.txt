@@ -1,0 +1,15 @@
+// these did not work
+docker run --name mqtt --restart=always --net=host -tid  toke/mosquitto
+docker run -tip 1883:1883 -p 9001:9001 toke/mosquitto
+docker run -it -p 1883:1883 -p 9001:9001 -v mosquitto.conf:/mosquitto/config/mosquitto.conf -v /mosquitto/data -v /mosquitto/log eclipse-mosquitto
+
+// not sure this was needed ??
+docker run -tip 1883:1883 -p 9001:9001 --name mqtt3 pascaldevink/rpi-mosquitto
+
+// install service
+sudo docker service create \
+--name mqtt2 \
+--publish 1883:1883 \
+--publish 9001:9001 \
+--constraint node.role==manager \
+pascaldevink/rpi-mosquitto
