@@ -1,9 +1,9 @@
 // Update hosts file
 127.0.1.1	pi0
-192.168.1.190	pi1
-192.168.1.191	pi2
-192.168.1.192	pi3
-192.168.1.193	pi4
+192.168.1.101	pi1
+192.168.1.102	pi2
+192.168.1.103	pi3
+192.168.1.104	pi4
 
 // Prepare ssh keygens and sign-ons using rsa certs
 ssh-keygen -t rsa
