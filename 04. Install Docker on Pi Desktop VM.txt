@@ -1,4 +1,8 @@
-//Install on Desktop
+// these scripts were used to install docker onto Raspbery PI Desktop vm
+// this vm is only used to perform console access to administer the swarm
+// as the vm was runing on top of Windows 10 (x86), i don't believe it is 
+// capable of participating in the Pi swarm as they execute a different instruction set (Arm).
+
 sudo apt-get update
 
 sudo apt-get install \
